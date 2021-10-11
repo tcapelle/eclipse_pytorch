@@ -2,8 +2,10 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"Upsampler": "00_model.ipynb",
+index = {"SpatialDownsampler": "00_model.ipynb",
+         "Upsampler": "00_model.ipynb",
          "IrradianceModule": "00_model.ipynb",
+         "Eclipse": "00_model.ipynb",
          "get_activation": "01_layers.ipynb",
          "get_norm": "01_layers.ipynb",
          "ConvBlock": "01_layers.ipynb",
