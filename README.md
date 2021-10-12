@@ -1,5 +1,5 @@
 # Eclipse
-> Implementing Paletta et al. in Pytorch
+> Implementing <a href='https://arxiv.org/pdf/2104.12419v1.pdf'>Paletta et al</a> in Pytorch
 
 
 Most of the codebase comes from [Fiery](https://github.com/wayveai/fiery)
@@ -46,3 +46,19 @@ len(preds['masks']), preds['masks'][0].shape, preds['irradiance'][0].shape
     (6, torch.Size([2, 3, 128, 128]), torch.Size([2, 1]))
 
 
+
+## Citation
+
+```latex
+@article{paletta2021eclipse,
+  title     = {{ECLIPSE} : Envisioning Cloud Induced Perturbations in Solar Energy},
+  author    = {Quentin Paletta and Anthony Hu and Guillaume Arbod and Joan Lasenby},
+  year      = {2021},
+  eprinttype = {arXiv},
+  eprint    = {2104.12419}
+}
+```
+
+## Contribute
+
+This repo is made with [nbdev](https://github.com/fastai/nbdev), please read the documentation to contribute
