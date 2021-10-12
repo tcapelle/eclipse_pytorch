@@ -3,10 +3,7 @@
 __all__ = ['SpatialDownsampler', 'Upsampler', 'IrradianceModule', 'Eclipse']
 
 # Cell
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-
+from .imports import *
 from .layers import *
 
 # Cell
@@ -51,10 +48,10 @@ class IrradianceModule(nn.Module):
 
 # Cell
 class Eclipse(nn.Module):
-
-    def __init__(self, n_in=3, horizon=5):
+    """Not very parametric"""
+    def __init__(self, n_in=3, horizon=5, debug=False):
         super().__init__()
-        self.horizon = horizon
+        store_attr()
         self.spatial_downsampler = SpatialDownsampler(n_in)
         self.temporal_model = TemporalBlock(256, 128)
         self.future_prediction = FuturePrediction(128, 128, n_gru_blocks=4, n_res_layers=4)
@@ -70,17 +67,17 @@ class Eclipse(nn.Module):
 
         #encode temporal model
         states = self.temporal_model(x).permute(0, 2, 1, 3, 4).contiguous()
-        print(f'{states.shape=}')
+        if self.debug: print(f'{states.shape=}')
 
         #get hidden state
-        present_state = states[:, :1].contiguous()
-        print(f'{present_state.shape=}')
+        present_state = states[:, -1:].contiguous()
+        if self.debug: print(f'{present_state.shape=}')
 
 
         # Prepare future prediction input
         hidden_state = present_state[:, 0]
+        if self.debug: print(f'{hidden_state.shape=}')
 
-        print(f'{hidden_state.shape=}')
         future_prediction_input = self.zero_hidden(hidden_state, self.horizon)
 
         # Recursively predict future states
@@ -88,7 +85,7 @@ class Eclipse(nn.Module):
 
         # Concatenate present state
         future_states = torch.cat([present_state, future_states], dim=1)
-        print(f'{future_states.shape=}')
+        if self.debug: print(f'{future_states.shape=}')
 
         #decode outputs
         preds = {'masks': [], 'irradiance': []}

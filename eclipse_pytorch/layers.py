@@ -5,13 +5,7 @@ __all__ = ['get_activation', 'get_norm', 'ConvBlock', 'Bottleneck', 'Interpolate
            'PyramidSpatioTemporalPooling', 'TemporalBlock', 'FuturePrediction']
 
 # Cell
-from collections import OrderedDict
-
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-
-from fastcore.all import *
+from .imports import *
 
 # Cell
 def get_activation(activation):
