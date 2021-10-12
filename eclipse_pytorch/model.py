@@ -49,13 +49,13 @@ class IrradianceModule(nn.Module):
 # Cell
 class Eclipse(nn.Module):
     """Not very parametric"""
-    def __init__(self, n_in=3, horizon=5, debug=False):
+    def __init__(self, n_in=3, n_out=4, horizon=5, debug=False):
         super().__init__()
         store_attr()
         self.spatial_downsampler = SpatialDownsampler(n_in)
         self.temporal_model = TemporalBlock(256, 128)
         self.future_prediction = FuturePrediction(128, 128, n_gru_blocks=4, n_res_layers=4)
-        self.upsampler = Upsampler()
+        self.upsampler = Upsampler(n_out=n_out)
         self.irradiance = IrradianceModule()
 
     def zero_hidden(self, x, horizon):
