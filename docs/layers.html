@@ -47,7 +47,7 @@ nb_path: "nbs/01_layers.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_activation" class="doc_header"><code>get_activation</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/layers.py#L17" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_activation</code>(<strong><code>activation</code></strong>)</p>
+<h4 id="get_activation" class="doc_header"><code>get_activation</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/layers.py#L11" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_activation</code>(<strong><code>activation</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -71,7 +71,7 @@ nb_path: "nbs/01_layers.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_norm" class="doc_header"><code>get_norm</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/layers.py#L31" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_norm</code>(<strong><code>norm</code></strong>, <strong><code>out_channels</code></strong>)</p>
+<h4 id="get_norm" class="doc_header"><code>get_norm</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/layers.py#L25" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_norm</code>(<strong><code>norm</code></strong>, <strong><code>out_channels</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -102,7 +102,7 @@ nb_path: "nbs/01_layers.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="ConvBlock" class="doc_header"><code>class</code> <code>ConvBlock</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/layers.py#L42" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ConvBlock</code>(<strong><code>in_channels</code></strong>, <strong><code>out_channels</code></strong>=<em><code>None</code></em>, <strong><code>kernel_size</code></strong>=<em><code>3</code></em>, <strong><code>stride</code></strong>=<em><code>1</code></em>, <strong><code>norm</code></strong>=<em><code>'bn'</code></em>, <strong><code>activation</code></strong>=<em><code>'relu'</code></em>, <strong><code>bias</code></strong>=<em><code>False</code></em>, <strong><code>transpose</code></strong>=<em><code>False</code></em>) :: <code>Module</code></p>
+<h2 id="ConvBlock" class="doc_header"><code>class</code> <code>ConvBlock</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/layers.py#L36" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ConvBlock</code>(<strong><code>in_channels</code></strong>, <strong><code>out_channels</code></strong>=<em><code>None</code></em>, <strong><code>kernel_size</code></strong>=<em><code>3</code></em>, <strong><code>stride</code></strong>=<em><code>1</code></em>, <strong><code>norm</code></strong>=<em><code>'bn'</code></em>, <strong><code>activation</code></strong>=<em><code>'relu'</code></em>, <strong><code>bias</code></strong>=<em><code>False</code></em>, <strong><code>transpose</code></strong>=<em><code>False</code></em>) :: <code>Module</code></p>
 </blockquote>
 <p>2D convolution followed by</p>
 <ul>
@@ -138,7 +138,7 @@ nb_path: "nbs/01_layers.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Bottleneck" class="doc_header"><code>class</code> <code>Bottleneck</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/layers.py#L80" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Bottleneck</code>(<strong><code>in_channels</code></strong>, <strong><code>out_channels</code></strong>=<em><code>None</code></em>, <strong><code>kernel_size</code></strong>=<em><code>3</code></em>, <strong><code>dilation</code></strong>=<em><code>1</code></em>, <strong><code>groups</code></strong>=<em><code>1</code></em>, <strong><code>upsample</code></strong>=<em><code>False</code></em>, <strong><code>downsample</code></strong>=<em><code>False</code></em>, <strong><code>dropout</code></strong>=<em><code>0.0</code></em>) :: <code>Module</code></p>
+<h2 id="Bottleneck" class="doc_header"><code>class</code> <code>Bottleneck</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/layers.py#L74" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Bottleneck</code>(<strong><code>in_channels</code></strong>, <strong><code>out_channels</code></strong>=<em><code>None</code></em>, <strong><code>kernel_size</code></strong>=<em><code>3</code></em>, <strong><code>dilation</code></strong>=<em><code>1</code></em>, <strong><code>groups</code></strong>=<em><code>1</code></em>, <strong><code>upsample</code></strong>=<em><code>False</code></em>, <strong><code>downsample</code></strong>=<em><code>False</code></em>, <strong><code>dropout</code></strong>=<em><code>0.0</code></em>) :: <code>Module</code></p>
 </blockquote>
 <p>Defines a bottleneck module with a residual connection</p>
 
@@ -170,7 +170,7 @@ nb_path: "nbs/01_layers.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Interpolate" class="doc_header"><code>class</code> <code>Interpolate</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/layers.py#L187" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Interpolate</code>(<strong><code>scale_factor</code></strong>:<code>int</code>=<em><code>2</code></em>) :: <code>Module</code></p>
+<h2 id="Interpolate" class="doc_header"><code>class</code> <code>Interpolate</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/layers.py#L181" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Interpolate</code>(<strong><code>scale_factor</code></strong>:<code>int</code>=<em><code>2</code></em>) :: <code>Module</code></p>
 </blockquote>
 <p>Base class for all neural network modules.</p>
 <p>Your models should also subclass this class.</p>
@@ -218,7 +218,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="UpsamplingConcat" class="doc_header"><code>class</code> <code>UpsamplingConcat</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/layers.py#L198" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>UpsamplingConcat</code>(<strong><code>in_channels</code></strong>, <strong><code>out_channels</code></strong>, <strong><code>scale_factor</code></strong>=<em><code>2</code></em>) :: <code>Module</code></p>
+<h2 id="UpsamplingConcat" class="doc_header"><code>class</code> <code>UpsamplingConcat</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/layers.py#L192" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>UpsamplingConcat</code>(<strong><code>in_channels</code></strong>, <strong><code>out_channels</code></strong>, <strong><code>scale_factor</code></strong>=<em><code>2</code></em>) :: <code>Module</code></p>
 </blockquote>
 <p>Base class for all neural network modules.</p>
 <p>Your models should also subclass this class.</p>
@@ -266,7 +266,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="UpsamplingAdd" class="doc_header"><code>class</code> <code>UpsamplingAdd</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/layers.py#L219" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>UpsamplingAdd</code>(<strong><code>in_channels</code></strong>, <strong><code>out_channels</code></strong>, <strong><code>scale_factor</code></strong>=<em><code>2</code></em>) :: <code>Module</code></p>
+<h2 id="UpsamplingAdd" class="doc_header"><code>class</code> <code>UpsamplingAdd</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/layers.py#L213" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>UpsamplingAdd</code>(<strong><code>in_channels</code></strong>, <strong><code>out_channels</code></strong>, <strong><code>scale_factor</code></strong>=<em><code>2</code></em>) :: <code>Module</code></p>
 </blockquote>
 <p>Base class for all neural network modules.</p>
 <p>Your models should also subclass this class.</p>
@@ -321,7 +321,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="ResBlock" class="doc_header"><code>class</code> <code>ResBlock</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/layers.py#L233" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ResBlock</code>(<strong><code>in_channels</code></strong>, <strong><code>out_channels</code></strong>, <strong><code>kernel_size</code></strong>=<em><code>3</code></em>, <strong><code>stride</code></strong>=<em><code>1</code></em>, <strong><code>norm</code></strong>=<em><code>'bn'</code></em>, <strong><code>activation</code></strong>=<em><code>'relu'</code></em>) :: <code>Module</code></p>
+<h2 id="ResBlock" class="doc_header"><code>class</code> <code>ResBlock</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/layers.py#L227" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ResBlock</code>(<strong><code>in_channels</code></strong>, <strong><code>out_channels</code></strong>, <strong><code>kernel_size</code></strong>=<em><code>3</code></em>, <strong><code>stride</code></strong>=<em><code>1</code></em>, <strong><code>norm</code></strong>=<em><code>'bn'</code></em>, <strong><code>activation</code></strong>=<em><code>'relu'</code></em>) :: <code>Module</code></p>
 </blockquote>
 <p>A simple resnet Block</p>
 
@@ -404,7 +404,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="SpatialGRU" class="doc_header"><code>class</code> <code>SpatialGRU</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/layers.py#L249" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>SpatialGRU</code>(<strong><code>input_size</code></strong>, <strong><code>hidden_size</code></strong>, <strong><code>gru_bias_init</code></strong>=<em><code>0.0</code></em>, <strong><code>norm</code></strong>=<em><code>'bn'</code></em>, <strong><code>activation</code></strong>=<em><code>'relu'</code></em>) :: <code>Module</code></p>
+<h2 id="SpatialGRU" class="doc_header"><code>class</code> <code>SpatialGRU</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/layers.py#L243" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>SpatialGRU</code>(<strong><code>input_size</code></strong>, <strong><code>hidden_size</code></strong>, <strong><code>gru_bias_init</code></strong>=<em><code>0.0</code></em>, <strong><code>norm</code></strong>=<em><code>'bn'</code></em>, <strong><code>activation</code></strong>=<em><code>'relu'</code></em>) :: <code>Module</code></p>
 </blockquote>
 <p>A GRU cell that takes an input tensor [BxTxCxHxW] and an optional previous state and passes a
 convolutional gated recurrent unit over the data</p>
@@ -525,7 +525,7 @@ convolutional gated recurrent unit over the data</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="CausalConv3d" class="doc_header"><code>class</code> <code>CausalConv3d</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/layers.py#L304" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>CausalConv3d</code>(<strong><code>in_channels</code></strong>, <strong><code>out_channels</code></strong>, <strong><code>kernel_size</code></strong>=<em><code>(2, 3, 3)</code></em>, <strong><code>dilation</code></strong>=<em><code>(1, 1, 1)</code></em>, <strong><code>bias</code></strong>=<em><code>False</code></em>) :: <code>Module</code></p>
+<h2 id="CausalConv3d" class="doc_header"><code>class</code> <code>CausalConv3d</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/layers.py#L298" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>CausalConv3d</code>(<strong><code>in_channels</code></strong>, <strong><code>out_channels</code></strong>, <strong><code>kernel_size</code></strong>=<em><code>(2, 3, 3)</code></em>, <strong><code>dilation</code></strong>=<em><code>(1, 1, 1)</code></em>, <strong><code>bias</code></strong>=<em><code>False</code></em>) :: <code>Module</code></p>
 </blockquote>
 <p>Base class for all neural network modules.</p>
 <p>Your models should also subclass this class.</p>
@@ -631,7 +631,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="conv_1x1x1_norm_activated" class="doc_header"><code>conv_1x1x1_norm_activated</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/layers.py#L327" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>conv_1x1x1_norm_activated</code>(<strong><code>in_channels</code></strong>, <strong><code>out_channels</code></strong>)</p>
+<h4 id="conv_1x1x1_norm_activated" class="doc_header"><code>conv_1x1x1_norm_activated</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/layers.py#L321" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>conv_1x1x1_norm_activated</code>(<strong><code>in_channels</code></strong>, <strong><code>out_channels</code></strong>)</p>
 </blockquote>
 <p>1x1x1 3D convolution, normalization and activation layer.</p>
 
@@ -700,7 +700,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Bottleneck3D" class="doc_header"><code>class</code> <code>Bottleneck3D</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/layers.py#L340" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Bottleneck3D</code>(<strong><code>in_channels</code></strong>, <strong><code>out_channels</code></strong>=<em><code>None</code></em>, <strong><code>kernel_size</code></strong>=<em><code>(2, 3, 3)</code></em>, <strong><code>dilation</code></strong>=<em><code>(1, 1, 1)</code></em>) :: <code>Module</code></p>
+<h2 id="Bottleneck3D" class="doc_header"><code>class</code> <code>Bottleneck3D</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/layers.py#L334" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Bottleneck3D</code>(<strong><code>in_channels</code></strong>, <strong><code>out_channels</code></strong>=<em><code>None</code></em>, <strong><code>kernel_size</code></strong>=<em><code>(2, 3, 3)</code></em>, <strong><code>dilation</code></strong>=<em><code>(1, 1, 1)</code></em>) :: <code>Module</code></p>
 </blockquote>
 <p>Defines a bottleneck module with a residual connection</p>
 
@@ -783,7 +783,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="PyramidSpatioTemporalPooling" class="doc_header"><code>class</code> <code>PyramidSpatioTemporalPooling</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/layers.py#L387" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>PyramidSpatioTemporalPooling</code>(<strong><code>in_channels</code></strong>, <strong><code>reduction_channels</code></strong>, <strong><code>pool_sizes</code></strong>) :: <code>Module</code></p>
+<h2 id="PyramidSpatioTemporalPooling" class="doc_header"><code>class</code> <code>PyramidSpatioTemporalPooling</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/layers.py#L381" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>PyramidSpatioTemporalPooling</code>(<strong><code>in_channels</code></strong>, <strong><code>reduction_channels</code></strong>, <strong><code>pool_sizes</code></strong>) :: <code>Module</code></p>
 </blockquote>
 <p>Spatio-temporal pyramid pooling.
 Performs 3D average pooling followed by 1x1x1 convolution to reduce the number of channels and upsampling.
@@ -871,7 +871,7 @@ Setting contains a list of kernel_size: usually it is [(2, h, w), (2, h//2, w//2
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="TemporalBlock" class="doc_header"><code>class</code> <code>TemporalBlock</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/layers.py#L438" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>TemporalBlock</code>(<strong><code>in_channels</code></strong>, <strong><code>out_channels</code></strong>=<em><code>None</code></em>, <strong><code>use_pyramid_pooling</code></strong>=<em><code>False</code></em>, <strong><code>pool_sizes</code></strong>=<em><code>None</code></em>) :: <code>Module</code></p>
+<h2 id="TemporalBlock" class="doc_header"><code>class</code> <code>TemporalBlock</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/layers.py#L432" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>TemporalBlock</code>(<strong><code>in_channels</code></strong>, <strong><code>out_channels</code></strong>=<em><code>None</code></em>, <strong><code>use_pyramid_pooling</code></strong>=<em><code>False</code></em>, <strong><code>pool_sizes</code></strong>=<em><code>None</code></em>) :: <code>Module</code></p>
 </blockquote>
 <p>Temporal block with the following layers:</p>
 <ul>
@@ -945,7 +945,7 @@ Setting contains a list of kernel_size: usually it is [(2, h, w), (2, h//2, w//2
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="FuturePrediction" class="doc_header"><code>class</code> <code>FuturePrediction</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/layers.py#L504" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>FuturePrediction</code>(<strong><code>in_channels</code></strong>, <strong><code>latent_dim</code></strong>, <strong><code>n_gru_blocks</code></strong>=<em><code>3</code></em>, <strong><code>n_res_layers</code></strong>=<em><code>3</code></em>) :: <code>Module</code></p>
+<h2 id="FuturePrediction" class="doc_header"><code>class</code> <code>FuturePrediction</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/layers.py#L498" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>FuturePrediction</code>(<strong><code>in_channels</code></strong>, <strong><code>latent_dim</code></strong>, <strong><code>n_gru_blocks</code></strong>=<em><code>3</code></em>, <strong><code>n_res_layers</code></strong>=<em><code>3</code></em>) :: <code>Module</code></p>
 </blockquote>
 <p>Base class for all neural network modules.</p>
 <p>Your models should also subclass this class.</p>

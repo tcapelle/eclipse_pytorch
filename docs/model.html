@@ -76,7 +76,7 @@ nb_path: "nbs/00_model.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="SpatialDownsampler" class="doc_header"><code>class</code> <code>SpatialDownsampler</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/model.py#L13" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>SpatialDownsampler</code>(<strong><code>in_channels</code></strong>=<em><code>3</code></em>) :: <code>Module</code></p>
+<h2 id="SpatialDownsampler" class="doc_header"><code>class</code> <code>SpatialDownsampler</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/model.py#L10" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>SpatialDownsampler</code>(<strong><code>in_channels</code></strong>=<em><code>3</code></em>) :: <code>Module</code></p>
 </blockquote>
 <p>Base class for all neural network modules.</p>
 <p>Your models should also subclass this class.</p>
@@ -144,7 +144,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span>
 <span class="n">features</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">sd</span><span class="p">(</span><span class="n">image</span><span class="p">)</span> <span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">images</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">features</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
@@ -161,7 +161,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>torch.Size([1, 256, 4, 32, 32])</pre>
+<pre>torch.Size([1, 256, 4, 8, 8])</pre>
 </div>
 
 </div>
@@ -218,7 +218,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>torch.Size([1, 128, 4, 32, 32])</pre>
+<pre>torch.Size([1, 128, 4, 8, 8])</pre>
 </div>
 
 </div>
@@ -259,9 +259,9 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hidden</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
-
-<span class="n">fp</span><span class="p">(</span><span class="n">temp_encoded</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">hidden</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hidden</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">fp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">hidden</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
@@ -276,7 +276,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>torch.Size([1, 4, 128, 32, 32])</pre>
+<pre>torch.Size([1, 4, 128, 8, 8])</pre>
 </div>
 
 </div>
@@ -300,10 +300,51 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">eclipse_pytorch.model</span> <span class="kn">import</span> <span class="o">*</span><span class="n">bn</span> <span class="o">=</span> <span class="n">Bottleneck</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="n">upsample</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bn</span> <span class="o">=</span> <span class="n">Bottleneck</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="n">upsample</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">bn</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Bottleneck(
+  (layers): Sequential(
+    (conv_down_project): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (abn_down_project): Sequential(
+      (0): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (1): ReLU(inplace=True)
+    )
+    (conv): ConvTranspose2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), output_padding=(1, 1), bias=False)
+    (abn): Sequential(
+      (0): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (1): ReLU(inplace=True)
+    )
+    (conv_up_project): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (abn_up_project): Sequential(
+      (0): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (1): ReLU(inplace=True)
+    )
+    (dropout): Dropout2d(p=0.0, inplace=False)
+  )
+  (projection): Sequential(
+    (upsample_skip_proj): Interpolate()
+    (conv_skip_proj): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn_skip_proj): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  )
+)</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -332,7 +373,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>torch.Size([256, 4, 32, 32])</pre>
+<pre>torch.Size([256, 4, 8, 8])</pre>
 </div>
 
 </div>
@@ -388,7 +429,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Upsampler" class="doc_header"><code>class</code> <code>Upsampler</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/model.py#L26" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Upsampler</code>(<strong><code>sizes</code></strong>=<em><code>[128, 128, 64]</code></em>, <strong><code>n_out</code></strong>=<em><code>3</code></em>) :: <code>Module</code></p>
+<h2 id="Upsampler" class="doc_header"><code>class</code> <code>Upsampler</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/model.py#L23" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Upsampler</code>(<strong><code>sizes</code></strong>=<em><code>[128, 128, 64]</code></em>, <strong><code>n_out</code></strong>=<em><code>3</code></em>) :: <code>Module</code></p>
 </blockquote>
 <p>Base class for all neural network modules.</p>
 <p>Your models should also subclass this class.</p>
@@ -485,7 +526,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="IrradianceModule" class="doc_header"><code>class</code> <code>IrradianceModule</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/model.py#L38" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>IrradianceModule</code>() :: <code>Module</code></p>
+<h2 id="IrradianceModule" class="doc_header"><code>class</code> <code>IrradianceModule</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/model.py#L35" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>IrradianceModule</code>() :: <code>Module</code></p>
 </blockquote>
 <p>Base class for all neural network modules.</p>
 <p>Your models should also subclass this class.</p>
@@ -597,32 +638,9 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Eclipse" class="doc_header"><code>class</code> <code>Eclipse</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/model.py#L53" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Eclipse</code>(<strong><code>n_in</code></strong>=<em><code>3</code></em>, <strong><code>horizon</code></strong>=<em><code>5</code></em>) :: <code>Module</code></p>
+<h2 id="Eclipse" class="doc_header"><code>class</code> <code>Eclipse</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/model.py#L50" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Eclipse</code>(<strong><code>n_in</code></strong>=<em><code>3</code></em>, <strong><code>horizon</code></strong>=<em><code>5</code></em>, <strong><code>debug</code></strong>=<em><code>False</code></em>) :: <code>Module</code></p>
 </blockquote>
-<p>Base class for all neural network modules.</p>
-<p>Your models should also subclass this class.</p>
-<p>Modules can also contain other Modules, allowing to nest them in
-a tree structure. You can assign the submodules as regular attributes::</p>
-
-<pre><code>import torch.nn as nn
-import torch.nn.functional as F
-
-class Model(nn.Module):
-    def __init__(self):
-        super(Model, self).__init__()
-        self.conv1 = nn.Conv2d(1, 20, 5)
-        self.conv2 = nn.Conv2d(20, 20, 5)
-
-    def forward(self, x):
-        x = F.relu(self.conv1(x))
-        return F.relu(self.conv2(x))
-
-</code></pre>
-<p>Submodules assigned in this way will be registered, and will have their
-parameters converted too when you call :meth:<code>to</code>, etc.</p>
-<p>:ivar training: Boolean represents whether this module is in training or
-                evaluation mode.
-:vartype training: bool</p>
+<p>Not very parametric</p>
 
 </div>
 
@@ -648,7 +666,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">eclipse</span> <span class="o">=</span> <span class="n">Eclipse</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">eclipse</span> <span class="o">=</span> <span class="n">Eclipse</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -665,7 +683,9 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">preds</span> <span class="o">=</span> <span class="n">eclipse</span><span class="p">([</span><span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">preds</span> <span class="o">=</span> <span class="n">eclipse</span><span class="p">([</span><span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)])</span>
+
+<span class="n">preds</span><span class="p">[</span><span class="s1">&#39;masks&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">preds</span><span class="p">[</span><span class="s1">&#39;irradiance&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
@@ -678,12 +698,22 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>states.shape=torch.Size([2, 4, 128, 32, 32])
-present_state.shape=torch.Size([2, 1, 128, 32, 32])
-hidden_state.shape=torch.Size([2, 128, 32, 32])
-future_states.shape=torch.Size([2, 6, 128, 32, 32])
+<pre>states.shape=torch.Size([2, 4, 128, 16, 16])
+present_state.shape=torch.Size([2, 1, 128, 16, 16])
+hidden_state.shape=torch.Size([2, 128, 16, 16])
+future_states.shape=torch.Size([2, 6, 128, 16, 16])
 </pre>
 </div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(torch.Size([2, 3, 128, 128]), torch.Size([2, 1]))</pre>
+</div>
+
 </div>
 
 </div>

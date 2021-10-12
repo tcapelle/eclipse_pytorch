@@ -70,12 +70,12 @@ class Eclipse(nn.Module):
         if self.debug: print(f'{states.shape=}')
 
         #get hidden state
-        present_state = states[:, -1:].contiguous()
+        present_state = states[:, -1:]
         if self.debug: print(f'{present_state.shape=}')
 
 
         # Prepare future prediction input
-        hidden_state = present_state[:, 0]
+        hidden_state = present_state.squeeze()
         if self.debug: print(f'{hidden_state.shape=}')
 
         future_prediction_input = self.zero_hidden(hidden_state, self.horizon)

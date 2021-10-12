@@ -2,30 +2,47 @@
 > Implementing Paletta et al. in Pytorch
 
 
+Most of the codebase comes from [Fiery](https://github.com/wayveai/fiery)
+
 ![Image](nbs/images/eclipse_diagram.png)
 
 ## Install
 
-`pip install eclipse_pytorch`
+```bash
+pip install eclipse_pytorch
+```
 
 ## How to use
 
 ```python
 import torch
 
-from eclipse_pytorch.model import *
+from eclipse_pytorch.model import Eclipse
 ```
 
 ```python
-eclipse = Eclipse()
+eclipse = Eclipse(horizon=5)
+```
+
+let's simulte some input images:
+
+```python
+images = [torch.rand(2, 3, 128, 128) for _ in range(4)]
 ```
 
 ```python
-preds = eclipse([torch.rand(2, 3, 256, 256) for _ in range(4)])
+preds = eclipse(images)
 ```
 
-    states.shape=torch.Size([2, 4, 128, 32, 32])
-    present_state.shape=torch.Size([2, 1, 128, 32, 32])
-    hidden_state.shape=torch.Size([2, 128, 32, 32])
-    future_states.shape=torch.Size([2, 6, 128, 32, 32])
+you get a dict with forecasted masks and irradiances:
+
+```python
+len(preds['masks']), preds['masks'][0].shape, preds['irradiance'][0].shape
+```
+
+
+
+
+    (6, torch.Size([2, 3, 128, 128]), torch.Size([2, 1]))
+
 
