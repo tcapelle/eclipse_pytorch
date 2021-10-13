@@ -26,7 +26,7 @@ class Upsampler(nn.Module):
         zsizes = zip(sizes[:-1], sizes[1:])
         self.convs = nn.Sequential(*[Bottleneck(si, sf, upsample=True) for si,sf in zsizes],
                                    Bottleneck(sizes[-1], sizes[-1], upsample=True),
-                                   ConvBlock(sizes[-1], n_out, kernel_size=1, activation='none'))
+                                   ConvBlock(sizes[-1], n_out, kernel_size=1, activation=None))
 
     def forward(self, x):
         return self.convs(x)
@@ -88,8 +88,9 @@ class Eclipse(nn.Module):
         if self.debug: print(f'{future_states.shape=}')
 
         #decode outputs
-        preds = {'masks': [], 'irradiance': []}
+        masks, irradiances = [], []
+
         for state in future_states.unbind(dim=1):
-            preds['masks'].append(self.upsampler(state))
-            preds['irradiance'].append(self.irradiance(state))
-        return preds
+            masks.append(self.upsampler(state))
+            irradiances.append(self.irradiance(state))
+        return {'masks': masks, 'irradiances': torch.cat(irradiances, dim=-1)}

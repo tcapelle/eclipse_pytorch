@@ -37,13 +37,13 @@ preds = eclipse(images)
 you get a dict with forecasted masks and irradiances:
 
 ```python
-len(preds['masks']), preds['masks'][0].shape, preds['irradiance'][0].shape
+len(preds['masks']), preds['masks'][0].shape, preds['irradiances'].shape
 ```
 
 
 
 
-    (6, torch.Size([2, 3, 128, 128]), torch.Size([2, 1]))
+    (6, torch.Size([2, 4, 128, 128]), torch.Size([2, 6]))
 
 
 

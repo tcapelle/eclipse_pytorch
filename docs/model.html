@@ -638,7 +638,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Eclipse" class="doc_header"><code>class</code> <code>Eclipse</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/model.py#L50" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Eclipse</code>(<strong><code>n_in</code></strong>=<em><code>3</code></em>, <strong><code>horizon</code></strong>=<em><code>5</code></em>, <strong><code>debug</code></strong>=<em><code>False</code></em>) :: <code>Module</code></p>
+<h2 id="Eclipse" class="doc_header"><code>class</code> <code>Eclipse</code><a href="https://github.com/tcapelle/eclipse_pytorch/tree/master/eclipse_pytorch/model.py#L50" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Eclipse</code>(<strong><code>n_in</code></strong>=<em><code>3</code></em>, <strong><code>n_out</code></strong>=<em><code>4</code></em>, <strong><code>horizon</code></strong>=<em><code>5</code></em>, <strong><code>debug</code></strong>=<em><code>False</code></em>) :: <code>Module</code></p>
 </blockquote>
 <p>Not very parametric</p>
 
@@ -685,7 +685,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">preds</span> <span class="o">=</span> <span class="n">eclipse</span><span class="p">([</span><span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)])</span>
 
-<span class="n">preds</span><span class="p">[</span><span class="s1">&#39;masks&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">preds</span><span class="p">[</span><span class="s1">&#39;irradiance&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">preds</span><span class="p">[</span><span class="s1">&#39;masks&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">preds</span><span class="p">[</span><span class="s1">&#39;irradiances&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
@@ -711,7 +711,7 @@ future_states.shape=torch.Size([2, 6, 128, 16, 16])
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(torch.Size([2, 3, 128, 128]), torch.Size([2, 1]))</pre>
+<pre>(torch.Size([2, 4, 128, 128]), torch.Size([2, 6]))</pre>
 </div>
 
 </div>
