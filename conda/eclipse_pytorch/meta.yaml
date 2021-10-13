@@ -1,9 +1,9 @@
 package:
   name: eclipse_pytorch
-  version: 0.0.4
+  version: 0.0.5
 source:
-  sha256: a89885af33d238dee04973d611eaf243c8aa7963594e6a7b7fd0cdf0ddfc0dce
-  url: https://files.pythonhosted.org/packages/e4/b2/3e1d640e98389e122f561afc8d2fd1388c007b7fcafa784715db68b32db3/eclipse_pytorch-0.0.4.tar.gz
+  sha256: c8624f0042eb757358224877c36ce3efcce64d32ee0eb8155836444b02874f41
+  url: https://files.pythonhosted.org/packages/fa/71/2595dbf8c872b75a9090619fbdb1c52338a7a093b33b7af1443dfd5a0f1f/eclipse_pytorch-0.0.5.tar.gz
 about:
   dev_url: https://tcapelle.github.io
   doc_url: https://tcapelle.github.io
