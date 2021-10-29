@@ -84,12 +84,11 @@ class Upsampler(nn.Module):
 class IrradianceModule(nn.Module):
     def __init__(self):
         super().__init__()
-        self.convs = nn.Sequential(ConvBlock(128, 64),
+        self.convs = nn.Sequential(ConvBlock(128, 64, stride=2),
                                    ConvBlock(64, 64),
                                    nn.AdaptiveMaxPool2d(1)
                                   )
         self.linear = nn.Sequential(nn.Flatten(),
-                                    nn.BatchNorm1d(64),
                                     nn.Linear(64, 1)
                                    )
     def forward(self, x):
@@ -98,12 +97,12 @@ class IrradianceModule(nn.Module):
 # Cell
 class Eclipse(nn.Module):
     """Not very parametric"""
-    def __init__(self, n_in=3, n_out=4, horizon=5, img_size=(128, 128), debug=False):
+    def __init__(self, n_in=3, n_out=4, horizon=5, img_size=(128, 128), n_gru_layers=4, n_res_layers=4, debug=False):
         super().__init__()
         store_attr()
         self.spatial_downsampler = SpatialDownsampler(n_in)
         self.temporal_model = TemporalModel(256, 3, input_shape=(img_size[0]//8, img_size[1]//8), start_out_channels=128)
-        self.future_prediction = FuturePrediction(128, 128, n_gru_blocks=4, n_res_layers=4)
+        self.future_prediction = FuturePrediction(128, 128, n_gru_blocks=n_gru_layers, n_res_layers=n_res_layers)
         self.upsampler = Upsampler(n_out=n_out)
         self.irradiance = IrradianceModule()
 
